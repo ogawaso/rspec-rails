@@ -1,6 +1,8 @@
 source "http://rubygems.org"
 
-%w[rspec rspec-core rspec-expectations rspec-mocks rspec-rails].each do |lib|
+gemspec
+
+%w[rspec rspec-core rspec-expectations rspec-mocks].each do |lib|
   library_path = File.expand_path("../../#{lib}", __FILE__)
   if File.exist?(library_path)
     gem lib, :path => library_path
@@ -11,23 +13,16 @@ source "http://rubygems.org"
   end
 end
 
+### deps for rdoc.info
+gem 'yard',          '0.8.0', :require => false
+gem 'redcarpet',     '2.1.1'
+gem 'github-markup', '0.7.2'
+
 platforms :jruby do
   gem "jruby-openssl"
 end
 
-gem 'rake', '~> 0.9.2'
-gem 'rdoc'
-gem 'sqlite3-ruby', :require => 'sqlite3'
-
-group :development, :test do
-  gem "cucumber", "1.1.9"
-  gem "aruba", "0.4.11"
-  gem "ZenTest", "4.6.2"
-end
-
-group :test do
-  gem 'ammeter', :git => "https://github.com/alexrothenberg/ammeter.git"
-end
+gem 'sqlite3', '~> 1.3.6'
 
 eval File.read('Gemfile-custom') if File.exist?('Gemfile-custom')
 
@@ -36,6 +31,7 @@ when /master/
   gem "rails", :git => "git://github.com/rails/rails.git"
   gem "arel", :git => "git://github.com/rails/arel.git"
   gem "journey", :git => "git://github.com/rails/journey.git"
+  gem "active_record_deprecated_finders", :git => "git://github.com/rails/active_record_deprecated_finders.git"
 when /3-0-stable/
   gem "rails", :git => "git://github.com/rails/rails.git", :branch => "3-0-stable"
   gem "arel",  :git => "git://github.com/rails/arel.git", :branch => "2-0-stable"

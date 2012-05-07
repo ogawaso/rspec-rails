@@ -1,9 +1,25 @@
-### dev
-[full changelog](http://github.com/rspec/rspec-rails/compare/v2.9.0...master)
+### 2.10.1 / 2012-05-03
+[full changelog](http://github.com/rspec/rspec-rails/compare/v2.10.0...v2.10.1)
+
+Bug fixes
+
+* fix regression introduced in 2.10.0 that broke integration with Devise
+  (https://github.com/rspec/rspec-rails/issues/534)
+
+### 2.10.0 / 2012-05-03
+[full changelog](http://github.com/rspec/rspec-rails/compare/v2.9.0...v2.10.0)
 
 Bug fixes
 
 * `render_views` called in a spec can now override the config setting. (martinsvalin)
+* Fix `render_views` for anonymous controllers on 1.8.7. (hudge, mudge)
+* Eliminate use of deprecated `process_view_paths`
+* Fix false negatives when using `route_to` matcher with `should_not`
+* `controller` is no longer nil in `config.before` hooks
+* Change `request.path_parameters` keys to symbols to match real Rails
+  environment (Nathan Broadbent)
+* Silence deprecation warnings in pre-2.9 generated view specs (Jonathan del
+  Strother)
 
 ### 2.9.0 / 2012-03-17
 [full changelog](http://github.com/rspec/rspec-rails/compare/v2.8.1...v2.9.0)

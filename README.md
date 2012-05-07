@@ -26,7 +26,7 @@ Add `rspec-rails` to the `:test` and `:development` groups in the Gemfile:
 
 ```ruby
 group :test, :development do
-  gem "rspec-rails", "~> 2.6"
+  gem "rspec-rails", "~> 2.0"
 end
 ```
 
@@ -360,7 +360,7 @@ rendered.should xxx
 Model specs live in spec/models.
 
 ```ruby
-describe Articles do
+describe Article do
   describe ".recent" do
     it "includes articles published less than one week ago" do
       article = Article.create!(:published_at => Date.today - 1.week + 1.second)
